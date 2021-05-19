@@ -18,5 +18,26 @@ public class SimpleCollection {
     public ArrayList<String> getElements() {
         return this.elements;
     }
-    
+
+    public String toString() {
+        String stringOutput = "";
+        String listOfElements = "";
+
+        //If its last or only element dont use break line
+        for (String el : elements) {
+            if (el.equals(elements.get(elements.size() - 1))) {
+                listOfElements += el;
+            } else {
+                listOfElements += el + "\n";
+            }
+        }
+        if (elements.size() == 1) {
+            stringOutput = "The collection " + this.name + " has 1 element:\n" + listOfElements;
+        } else if (elements.size() == 0) {
+            stringOutput = "The collection " + this.name + " is empty.";
+        } else {
+            stringOutput = "The collection " + this.name + " has " + elements.size() + " elements:\n" + listOfElements;
+        }
+        return stringOutput;
+    }
 }
